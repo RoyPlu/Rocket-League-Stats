@@ -2,6 +2,12 @@ const {app, BrowserWindow} = require('electron')
 const path = require('path')
 const url = require('url')
 
+var rls = require('rls-api');
+
+var client = new rls.Client({
+    token: "QDQOV7OV1J0OOKKSPUU7SZDJHXLRPCLB"
+});
+
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
 let win
