@@ -1,0 +1,25 @@
+#displayName {
+    font-size: 40px;
+    font-style: italic;
+}
+
+.topBar{
+    background-color: rgba(211, 211, 211, 0.5);
+    margin: 3px;
+    padding: 2px;
+    border-radius: 5px;
+
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: lightslategrey url("https://images4.alphacoders.com/863/863539.jpg") no-repeat fixed center;
+}
+
+#avatar {
+    width: 100px;
+    margin-right: 10px;
+    float: left;
+    border:solid 3px black;
+    border-radius: 5px;
+}

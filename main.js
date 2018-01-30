@@ -15,6 +15,8 @@ let win
 function createWindow () {
   // Create the browser window.
   win = new BrowserWindow({width: 800, height: 600})
+  
+  win.setMenuBarVisibility(false);
 
   // and load the index.html of the app.
   win.loadURL(url.format({
@@ -23,8 +25,48 @@ function createWindow () {
     slashes: true
   }))
 
+
+  client.getPlayer("76561198043101035", rls.platforms.STEAM, function(status, data){
+    if(status === 200){
+        console.log("-- Player Data:");
+        console.log("   Display name: " + data.displayName);
+        console.log("   Goals: " + data.stats.goals);
+        console.log("   Profile URL: " + data.profileUrl);
+        console.log("   Avatar: " + data.avatar);
+
+        
+        win.webContents.executeJavaScript(
+            `document.getElementById("avatar").src += '${data.avatar}'`
+            
+        )
+
+        win.webContents.executeJavaScript(
+            `document.getElementById("displayName").innerHTML += '${data.displayName}'`
+        )
+
+        win.webContents.executeJavaScript(
+            `document.getElementById("platform").innerHTML += '${data.platform.name}'`
+        )
+
+        win.webContents.executeJavaScript(
+            `document.getElementById("goals").innerHTML += '${data.stats.goals}'`
+        )
+
+        win.webContents.executeJavaScript(
+            `document.getElementById("wins").innerHTML += '${data.stats.wins}'`
+        )
+
+        win.webContents.executeJavaScript(
+            `document.getElementById("mvps").innerHTML += '${data.stats.mvps}'`
+        )
+      
+    } else {
+        console.log("-- getPlayer failed: " + status);
+    }
+});
+
   // Open the DevTools.
-  win.webContents.openDevTools()
+  //win.webContents.openDevTools()
 
   // Emitted when the window is closed.
   win.on('closed', () => {

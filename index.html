@@ -2,12 +2,21 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>Hello World!</title>
+    <title>Rocket League Stats</title>
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="index.css">
   </head>
   <body>
-    <h1>Hello World!</h1>
-    We are using node <script>document.write(process.versions.node)</script>,
-    Chrome <script>document.write(process.versions.chrome)</script>,
-    and Electron <script>document.write(process.versions.electron)</script>.
+    <div class="topBar">
+        <img id="avatar" />
+        <h1 id="displayName"></h1>
+        <h3 id="platform"></h3>
+    </div>
+    <br />
+    <label id="goals">Goals: </label>
+    <br />
+    <label id="wins">Wins: </label>
+    <br />
+    <label id="mvps">MVPs: </label>
   </body>
 </html>
